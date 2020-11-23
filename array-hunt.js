@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    var australianAnimals = ["bandicoot", "crocodile", "dingo", "echidna",
+        "frilled-dragon", "kangaroo", "koala", "ostrich", "platypus",
+        "striped-possum", "tasmanian-devil", "wombat"];
     var chineseFood = ["bao", "chow-mein", "dumplings", "egg-rolls",
         "fortune-cookies", "fried-rice", "gyoza", "lo-mein", "mapo-tofu",
         "ramen", "shumai", "wonton-soup"];
@@ -14,8 +17,7 @@ $(document).ready(function () {
 
     showAllImages();
 
-    function showAllImages()
-    {
+    function showAllImages() {
         // What image set was selected? This is the directory name
         var directoryName = $("#imageSet").val();
         // Based on the selection, use the correct array
@@ -45,8 +47,7 @@ $(document).ready(function () {
 
     }
 
-    function createImage(directory, fileName)
-    {
+    function createImage(directory, fileName) {
         // Create a div with a Bootstrap class
         var col = $("<div>").addClass("col");
         // Create a figure (can have a caption)
@@ -69,8 +70,7 @@ $(document).ready(function () {
         return col;
     }
 
-    function getSelectedArray()
-    {
+    function getSelectedArray() {
         // Which image set was selected?
         var selection = $("#imageSet").val();
 
@@ -82,18 +82,18 @@ $(document).ready(function () {
             return solarSystem;
         else if (selection === "dinos")
             return dinosaurs;
+        else if (selection === "aussie")
+            return australianAnimals;
     }
 
-    function arrayHunt()
-    {
+    function arrayHunt() {
         var myArray = getSelectedArray();
 
         /*
         Find the first and last string in the array.
         Output them to td#firstLast
          */
-        $("td#firstLast").text(myArray[0] + " " +
-            myArray[myArray.length - 1]);
+
 
         /*
         Find the first string that contains an 'n'.
